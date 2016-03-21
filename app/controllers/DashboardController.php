@@ -3,11 +3,11 @@
 class DashboardController extends BaseController {
 
 	public function getMenu(){
-        $role=Auth::user()->role;
-         if ($role==2) {
-            Auth::logout();
-            return Redirect::to('loginpage')->with('akses','akses'); ;
-        }
+        // $role=Auth::user()->role;
+        //  if ($role==2) {
+        //     Auth::logout();
+        //     return Redirect::to('loginpage')->with('akses','akses'); ;
+        // }
         return View::make('layout.menu'); 
     }
 

@@ -140,7 +140,7 @@
            <br><br><br>
              <li class="header">Rayon Praya<br>
              Jl. Sudirman No. 10<br>
-             Prape, Praya, Lombok Tengah<br>
+             Prapen, Praya, Lombok Tengah<br>
              Nusa Tenggara Barat – 83511<br>
              (0370) 654022</li>
 

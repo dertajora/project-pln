@@ -57,7 +57,15 @@
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                      <?php $nama = Auth::user()->nama; ?>
+                     <?php $nama = Auth::user()->nama;
+                      $role_id =Auth::user()->role; 
+                      if ($role_id == "1") {
+                        $jabatan = "Admin PLN";
+                       
+                      }else{
+                        $jabatan = "Admin PU";
+                       
+                      }?>
                       <span class="hidden-xs">{{$nama}} &nbsp&nbsp<i class="fa fa-gear"></i></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -65,17 +73,9 @@
                       <li class="user-header">
                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                         <p>
-                          <?php 
-                          $role_id = Auth::user()->role;
-                          $nama = Auth::user()->nama;
-                          if ($role_id == 1) {
-                            $role = "Admin PLN";
-                          }elseif ($role_id==2) {
-                            $role == "Admin PU";
-                          }
-                          ?>
+                         
                           {{$nama}}
-                          <small>{{$role}}</small>
+                          <small>{{$jabatan}}</small>
                         </p>
                       </li>
                      

@@ -53,19 +53,29 @@
                  
                 
                   
-                  <!-- User Account: style can be found in dropdown.less -->
+                 <!-- User Account: style can be found in dropdown.less -->
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                      <span class="hidden-xs">Derta Isyajora &nbsp&nbsp<i class="fa fa-gear"></i></span>
+                     <?php $nama = Auth::user()->nama;
+                      $role_id =Auth::user()->role; 
+                      if ($role_id == "1") {
+                        $jabatan = "Admin PLN";
+                       
+                      }else{
+                        $jabatan = "Admin PU";
+                       
+                      }?>
+                      <span class="hidden-xs">{{$nama}} &nbsp&nbsp<i class="fa fa-gear"></i></span>
                     </a>
                     <ul class="dropdown-menu">
                       <!-- User image -->
                       <li class="user-header">
                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                         <p>
-                          Derta Isyajora
-                          <small>Bagian Administrasi PLN</small>
+                         
+                          {{$nama}}
+                          <small>{{$jabatan}}</small>
                         </p>
                       </li>
                      

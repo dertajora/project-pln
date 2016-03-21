@@ -53,15 +53,7 @@
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                      <?php $nama = Auth::user()->nama;
-                      $role_id =Auth::user()->role; 
-                      if ($role_id == "1") {
-                        $jabatan = "Admin PLN";
-                        $dashboard = "dashboard";
-                      }else{
-                        $jabatan = "Admin PU";
-                        $dashboard = "dashboard-user";
-                      }?>
+                      <?php $nama = Auth::user()->nama; ?>
                       <span class="hidden-xs">{{$nama}} &nbsp&nbsp<i class="fa fa-gear"></i></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -70,10 +62,16 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                         <p>
                           <?php 
-                         
+                          $role_id = Auth::user()->role;
+                          $nama = Auth::user()->nama;
+                          if ($role_id == 1) {
+                            $role = "Admin PLN";
+                          }elseif ($role_id==2) {
+                            $role == "Admin PU";
+                          }
                           ?>
                           {{$nama}}
-                          <small>{{$jabatan}}</small>
+                          <small>{{$role}}</small>
                         </p>
                       </li>
                      
@@ -106,7 +104,7 @@
           <div class="row">
             <div class="col-md-3">
             </div>
-            <a href="{{$dashboard}}"><div class="col-md-3">
+            <a href="dashboard"><div class="col-md-3">
               <div class="box box-default">
                 <div class="box-header with-border">
                   <i class="fa fa-warning"></i>

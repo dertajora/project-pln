@@ -98,7 +98,13 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">NAVIGASI UTAMA</li>
-            
+            <li >
+
+              <a href="{{ URL::To('menu') }}">
+                <i class="fa fa-home"></i> <span>Home</span>
+                
+              </a>
+            </li>
             <li @yield('aktif1')>
               <a href="{{ URL::To('dashboard-user') }}">
                 <i class="fa fa-info-circle"></i> <span>Beranda</span>
@@ -114,7 +120,7 @@
            <br><br><br>
              <li class="header">Rayon Praya<br>
              Jl. Sudirman No. 10<br>
-             Prape, Praya, Lombok Tengah<br>
+             Prapen, Praya, Lombok Tengah<br>
              Nusa Tenggara Barat – 83511<br>
              (0370) 654022</li>
 
