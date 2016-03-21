@@ -16,7 +16,7 @@
 
   <body><center>
   	
-  	<center><IMG SRC="login/logo.jpg" height="25%" width="25%"></center>
+  	<center><IMG SRC="login/logo-new.jpg" height="25%" width="25%"></center>
     <div class="wrapper">
 	<div class="container">
 		<h1>Selamat Datang</h1>
