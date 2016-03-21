@@ -1,7 +1,7 @@
 @extends('layout.gardu')
 
 @section('title')
-Daftar Gardu
+Daftar Lampu PJU
 @endsection
 @section('content')
 

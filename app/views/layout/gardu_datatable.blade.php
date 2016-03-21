@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
                 <li><a href="{{URL::to('menu')}}">Home</a></li>
-                <li class="active"><a href="daftar_gardu">Daftar Gardu</a></li>
+                <li class="active"><a href="daftar_gardu">Daftar Lampu PJU</a></li>
                
               </ul>
              
