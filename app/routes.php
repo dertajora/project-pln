@@ -62,7 +62,9 @@ Route::get('detail-pesanan/{id}', array('as' => 'detail-pesanan', 'uses' =>'User
 
 
 //gardu
-Route::get('daftar_gardu', array('as' => 'daftar-gardu', 'uses' =>'GarduController@getIndex'));
+Route::get('daftar_lampu', array('as' => 'daftar-gardu', 'uses' =>'GarduController@getIndex'));
+Route::get('tambah_lampu', array('as' => 'tambah-lampu', 'uses' =>'GarduController@getTambah'));
+Route::post('simpan_lampu', array('as' => 'simpan-lampu', 'uses' =>'GarduController@postSimpanLampu'));
 Route::get('import', array('as' => 'import-file', 'uses' =>'GarduController@getImport'));
 Route::get('import-desa', array('as' => 'import-desa', 'uses' =>'GarduController@getImportDesa'));
 

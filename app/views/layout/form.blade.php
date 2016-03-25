@@ -32,7 +32,7 @@
         <nav class="navbar navbar-static-top">
           
             <div class="navbar-header">
-              <a href="menu" class="navbar-brand"><b>PT. PLN PERSERO</b></a>
+              <a href="{{ URL::To('menu') }}" class="navbar-brand"><b>PT. PLN PERSERO</b></a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>
@@ -40,7 +40,12 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-              
+              <ul class="nav navbar-nav">
+                <li><a href="{{URL::to('menu')}}">Home</a></li>
+                <li class=@yield('aktif1')><a href="daftar_lampu">Daftar Lampu PJU</a></li>
+                <li class=@yield('aktif2')><a href="tambah_lampu">Tambah Data Lampu PJU</a></li>
+                
+              </ul>
              
             </div><!-- /.navbar-collapse -->
             <!-- Navbar Right Menu -->
@@ -49,11 +54,19 @@
                  
                 
                   
-                  <!-- User Account: style can be found in dropdown.less -->
+                 <!-- User Account: style can be found in dropdown.less -->
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                      <?php $nama = Auth::user()->nama; ?>
+                     <?php $nama = Auth::user()->nama;
+                      $role_id =Auth::user()->role; 
+                      if ($role_id == "1") {
+                        $jabatan = "Admin PLN";
+                       
+                      }else{
+                        $jabatan = "Admin PU";
+                       
+                      }?>
                       <span class="hidden-xs">{{$nama}} &nbsp&nbsp<i class="fa fa-gear"></i></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -61,17 +74,9 @@
                       <li class="user-header">
                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                         <p>
-                          <?php 
-                          $role_id = Auth::user()->role;
-                          $nama = Auth::user()->nama;
-                          if ($role_id == 1) {
-                            $role = "Admin PLN";
-                          }elseif ($role_id==2) {
-                            $role == "Admin PU";
-                          }
-                          ?>
+                         
                           {{$nama}}
-                          <small>{{$role}}</small>
+                          <small>{{$jabatan}}</small>
                         </p>
                       </li>
                      
@@ -92,54 +97,31 @@
       </header>
       <!-- Full Width Column -->
       <div class="content-wrapper">
-        <section class="content-header">
-            <center><h1>
-            MENU
-              
-            </h1>
-            <br>
-            </center>
-            <section class="content">
-            
-          <div class="row">
-            <div class="col-md-3">
-            </div>
-            <a href="dashboard"><div class="col-md-3">
-              <div class="box box-default">
-                <div class="box-header with-border">
-                  <i class="fa fa-warning"></i>
-                  <center><h3 class="box-title">Pendaftaran PJU</h3></center>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <img src="lampu.png" height="100%" width="100%">
-                  
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-            </a>
-            <a href="daftar_lampu">
-            <div class="col-md-3">
-              <div class="box box-default">
-                <div class="box-header with-border">
-                  <i class="fa fa-bullhorn"></i>
-                  <center><h3 class="box-title">Daftar PJU</h3></center>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                 <img src="database.png" height="100%" width="100%">
-                  
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div> <!-- /.row -->
-          </a>
-          <!-- END ALERTS AND CALLOUTS -->
-
-            
-            </section> 
-          
-          </section>
-         
         
+         <section class="content-header">
+          
+
+           
+         </section> 
+
+         <div class="container">
+          <section class="content-header">
+            <h1>@yield('title')</h1>
+          </section>
+
+          <!-- Main content -->
+          <section class="content">
+            
+            <div class="box box-default">
+             
+              <div class="box-body">
+                @yield('content')
+              </div><!-- /.box-body -->
+            </div><!-- /.box -->
+            
+          </section><!-- /.content -->
+        </div><!-- /.container -->
+      
         
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
@@ -171,6 +153,7 @@
     <script>
       $(function () {
         $("#desa").chained("#kecamatan"); /* or $("#series").chainedTo("#mark"); */
+        $("#gardu").chained("#desa");
         $('table').dataTable({bFilter: false, bInfo: false});
         $("#example1").DataTable();
         $('#example2').DataTable({
@@ -182,6 +165,30 @@
           "autoWidth": false
         });
       });
+    </script>
+    <script>
+    $('#jenis').on('change', function() {
+      var jenis = $('#jenis').val();
+      if ($("#jenis").val() == 10){
+        $('#tipe').val("PIJAR");
+        
+      }else if($("#jenis").val() == 11){
+        $('#tipe').val("PIJAR");
+        
+      }else{
+        $('#tipe').val("PELEPAS GAS");
+      }
+      
+     
+    })
+    </script>
+
+    <script>
+    $('#daya').on('change', function() {
+      var daya = $("#daya").val();
+      $('#kelas').val(daya);
+      
+    })
     </script>
   </body>
   

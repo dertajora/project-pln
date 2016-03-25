@@ -28,6 +28,58 @@ class GarduController extends BaseController {
          return View::make('gardu.index-asli')->with('daftar_gardu',$daftar_gardu); 
     }
 
+    public function getTambah(){
+
+
+         return View::make('gardu.tambah'); 
+    }
+
+    public function postSimpanLampu(){
+        
+         $desa = Input::get('desa');
+         $gardu = Input::get('gardu');
+
+         $rasionalisasi = Input::get('rasionalisasi');
+         $daya_terpasang = Input::get('daya_terpasang');
+        
+         
+         $daya = Input::get('daya');
+         $kelas = Input::get('kelas');
+         
+         $jenis = Input::get('jenis');
+         if ($jenis == 10) {
+             $tipe = 1;
+         }elseif ($jenis == 11) {
+             $tipe = 1;
+         }else{
+            $tipe = 2;
+         }
+         
+         $kelas = $daya;
+         $lat = Input::get('lat');
+         $long = Input::get('long');
+
+         $deskripsi = Input::get('deskripsi');
+
+         #tambah data
+         $tambah_data = new Gardu;
+         $tambah_data->id_gardu = $gardu;
+         $tambah_data->id_desa = $desa;
+         $tambah_data->id_jenis = $jenis;
+         $tambah_data->daya = $daya;
+         $tambah_data->rasionalisasi = $rasionalisasi;
+          $tambah_data->lat = $lat;
+         $tambah_data->long = $long;
+          $tambah_data->daya_terpasang = $daya_terpasang;
+         $tambah_data->tipe = $tipe;
+         $tambah_data->kelas = $kelas;
+         $tambah_data->deskripsi = $deskripsi;
+         $tambah_data->save();
+
+         return Redirect::to('tambah_lampu')->with('success-message','sukses'); 
+         
+    }
+
     public function postCariKecamatan(){
 
          $kecamatan = Input::get('kecamatan');

@@ -119,7 +119,7 @@
               </div><!-- /.box -->
             </div><!-- /.col -->
             </a>
-            <a href="daftar_gardu">
+            <a href="daftar_lampu">
             <div class="col-md-3">
               <div class="box box-default">
                 <div class="box-header with-border">

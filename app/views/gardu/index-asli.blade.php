@@ -3,6 +3,11 @@
 @section('title')
 Daftar Lampu PJU
 @endsection
+
+@section('aktif1')
+{{"active"}}
+@endsection
+
 @section('content')
 
                 
