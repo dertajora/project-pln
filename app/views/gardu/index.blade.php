@@ -3,6 +3,10 @@
 @section('title')
 {{$parameter_pencarian}}
 @endsection
+
+@section('aktif1')
+{{"active"}}
+@endsection
 @section('content')
 
                 
@@ -54,7 +58,40 @@
                         $nama_jenis = Jenis::where('id', '=', $id_jenis)->where('id','!=',2)->pluck('jenis');
                         echo $nama_jenis;
                         ?></td>
-                        <td>{{$row->daya}}</td>
+                        
+                        <?php 
+                        $array_daya = [
+                        "25-50",
+                        "51-100",
+                        "101-200",
+                        "201-300",
+                        "301-400",
+                        "401-500",
+                        "501-600",
+                        "601-700",
+                        "701-800",
+                        "801-900",
+                        "901-1000",
+                        "10-50",
+                        "51-100",
+                        "101-250",
+                        "251-500",
+                        "501-1000",    
+                        ];
+
+
+                        if($row->daya == 0){
+                          $daya = 0;
+                        }else{
+                          $daya = $array_daya[$row->daya-1];
+                        }
+
+
+                        ?>  
+
+                        <td>{{$daya}}</td>
+
+
                         <td>{{$row->rasionalisasi}}</td>
                         <td>{{$row->lat}}</td>
                         <td>{{$row->long}}</td>

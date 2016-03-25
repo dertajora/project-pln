@@ -42,8 +42,9 @@
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
                 <li><a href="{{URL::to('menu')}}">Home</a></li>
-                <li class="active"><a href="daftar_gardu">Daftar Lampu PJU</a></li>
-               
+                <li class=@yield('aktif1')><a href="daftar_lampu">Daftar Lampu PJU</a></li>
+                <li class=@yield('aktif2')><a href="tambah_lampu">Tambah Data Lampu PJU</a></li>
+                
               </ul>
              
             </div><!-- /.navbar-collapse -->
