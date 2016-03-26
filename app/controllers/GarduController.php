@@ -30,12 +30,18 @@ class GarduController extends BaseController {
 
     public function getTambah(){
 
-
+         $role=Auth::user()->role;
+         if ($role==2) {
+            Auth::logout();
+            return Redirect::to('loginpage')->with('akses','akses'); ;
+         }
          return View::make('gardu.tambah'); 
     }
 
     public function postSimpanLampu(){
-        
+         
+            
+
          $desa = Input::get('desa');
          $gardu = Input::get('gardu');
 
