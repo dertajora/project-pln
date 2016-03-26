@@ -43,8 +43,18 @@
               <ul class="nav navbar-nav">
                 <li><a href="{{URL::to('menu')}}">Home</a></li>
                 <li class=@yield('aktif1')><a href="daftar_lampu">Daftar Lampu PJU</a></li>
+                 <?php $nama = Auth::user()->nama;
+                 $role_id =Auth::user()->role; 
+                 if ($role_id == "1") {
+                   $jabatan = "Admin PLN";
+                       
+                 }else{
+                   $jabatan = "Admin PU";
+                       
+                 }?>
+                  <?php if ($role_id==1) { ?>
                 <li class=@yield('aktif2')><a href="tambah_lampu">Tambah Data Lampu PJU</a></li>
-                
+                 <?php }?>
               </ul>
              
             </div><!-- /.navbar-collapse -->
@@ -58,15 +68,7 @@
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                     <?php $nama = Auth::user()->nama;
-                      $role_id =Auth::user()->role; 
-                      if ($role_id == "1") {
-                        $jabatan = "Admin PLN";
-                       
-                      }else{
-                        $jabatan = "Admin PU";
-                       
-                      }?>
+                    
                       <span class="hidden-xs">{{$nama}} &nbsp&nbsp<i class="fa fa-gear"></i></span>
                     </a>
                     <ul class="dropdown-menu">

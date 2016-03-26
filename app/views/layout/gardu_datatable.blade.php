@@ -42,9 +42,21 @@
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
                 <li><a href="{{URL::to('menu')}}">Home</a></li>
+                 <?php $nama = Auth::user()->nama;
+                 $role_id =Auth::user()->role; 
+                 if ($role_id == "1") {
+                   $jabatan = "Admin PLN";
+                       
+                 }else{
+                   $jabatan = "Admin PU";
+                 
+                 }?>
                 <li class=@yield('aktif1')><a href="daftar_lampu">Daftar Lampu PJU</a></li>
-                <li class=@yield('aktif2')><a href="tambah_lampu">Tambah Data Lampu PJU</a></li>
+                <?php if ($role_id==1) { ?>
+                  
                 
+                <li class=@yield('aktif2')><a href="tambah_lampu">Tambah Data Lampu PJU</a></li>
+                <?php }?>
               </ul>
              
             </div><!-- /.navbar-collapse -->
